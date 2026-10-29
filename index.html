@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Cauê Carvalho: growth and partnerships for crypto, Web3 and fintech brands across Latin America. Ex-KuCoin, ex-Gate.">
+<meta name="description" content="Cauê Carvalho: growth, partnerships, community and live experiences. Ex-KuCoin, ex-Gate.">
 <meta property="og:title" content="Cauê Carvalho · Growth & Partnerships">
-<meta property="og:description" content="Growth, KOLs, partnerships and live experiences for crypto, Web3 and fintech brands across Latin America.">
+<meta property="og:description" content="I turn attention into growth: KOLs, creators, partners, communities and live experiences.">
 <meta property="og:image" content="img/f1-paddock-red-bull-car.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23ff3b30'/%3E%3C/svg%3E">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -62,17 +62,49 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* Hero */
 .hero { position: relative; overflow: hidden; padding-block: 40px 56px; isolation: isolate; }
-.hero-bg { position: absolute; inset: 0; z-index: -1; }
-.hero-bg video { width: 100%; height: 100%; object-fit: cover; opacity: .28; filter: saturate(1.2); }
-.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,14,16,.35), var(--ink) 92%); }
+.hero-glow { position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(40% 50% at var(--gx, 30%) var(--gy, 40%), rgba(255, 210, 63, .14), transparent 70%),
+              radial-gradient(35% 45% at 85% 70%, rgba(200, 162, 255, .10), transparent 70%); }
 .slate { display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--dim); margin-bottom: clamp(28px, 5vw, 56px); }
 .slate span b { color: var(--paper); font-weight: 500; }
-.headline { font-size: clamp(40px, 9.6vw, 156px); line-height: .9; font-weight: 850; font-variation-settings: "wdth" 118; text-transform: uppercase; letter-spacing: -.02em; }
-.headline .row { display: block; }
-.headline .it { color: var(--sun); font-size: 1.08em; letter-spacing: -.01em; }
-.pill { display: inline-block; vertical-align: -.06em; height: .78em; width: 1.9em; border-radius: 999px; overflow: hidden; margin-inline: .08em; background: #222; position: relative; transform: rotate(-3deg); }
-.pill:nth-of-type(2n) { transform: rotate(3deg); }
-.pill img, .pill video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* 3D headline: extruded letters whose depth follows the pointer; hovered letters pop forward */
+.stage3d { perspective: 1100px; perspective-origin: 40% 50%; }
+.headline3d { --sx: .5; --sy: 1; --rx: 0; --ry: 0;
+  font-size: clamp(44px, 11.5vw, 184px); line-height: .92; font-weight: 900; font-variation-settings: "wdth" 112;
+  text-transform: uppercase; letter-spacing: -.01em; color: var(--paper);
+  transform-style: preserve-3d; transform: rotateX(calc(var(--ry) * -9deg)) rotateY(calc(var(--rx) * 13deg));
+  user-select: none; -webkit-user-select: none; }
+.headline3d .row { display: block; transform-style: preserve-3d; }
+.headline3d .w { display: inline-block; white-space: nowrap; transform-style: preserve-3d; }
+.ch { display: inline-block; position: relative; cursor: default;
+  transition: transform .45s cubic-bezier(.2, .9, .25, 1.5), color .25s;
+  text-shadow:
+    calc(var(--sx) * .012em) calc(var(--sy) * .012em) 0 #c3c0ca,
+    calc(var(--sx) * .024em) calc(var(--sy) * .024em) 0 #aeabb6,
+    calc(var(--sx) * .036em) calc(var(--sy) * .036em) 0 #9895a2,
+    calc(var(--sx) * .048em) calc(var(--sy) * .048em) 0 #827f8d,
+    calc(var(--sx) * .060em) calc(var(--sy) * .060em) 0 #6c6978,
+    calc(var(--sx) * .072em) calc(var(--sy) * .072em) 0 #575464,
+    calc(var(--sx) * .084em) calc(var(--sy) * .084em) 0 #43404f,
+    calc(var(--sx) * .096em) calc(var(--sy) * .096em) 0 #302e3a,
+    calc(var(--sx) * .16em) calc(var(--sy) * .2em) .12em rgba(0, 0, 0, .55); }
+.headline3d .it { font-family: var(--serif); font-style: italic; font-weight: 400; text-transform: none; font-variation-settings: normal; font-size: 1.12em; letter-spacing: 0; }
+.headline3d .it .ch { color: var(--sun);
+  text-shadow:
+    calc(var(--sx) * .012em) calc(var(--sy) * .012em) 0 #e7b92c,
+    calc(var(--sx) * .024em) calc(var(--sy) * .024em) 0 #cf9f1f,
+    calc(var(--sx) * .036em) calc(var(--sy) * .036em) 0 #b68614,
+    calc(var(--sx) * .048em) calc(var(--sy) * .048em) 0 #9b6d0c,
+    calc(var(--sx) * .060em) calc(var(--sy) * .060em) 0 #7f5506,
+    calc(var(--sx) * .072em) calc(var(--sy) * .072em) 0 #623f03,
+    calc(var(--sx) * .16em) calc(var(--sy) * .2em) .12em rgba(0, 0, 0, .55); }
+.ch:hover { transform: translateY(-.14em) rotate(-5deg) scale(1.1); color: var(--sun); }
+.ch:hover + .ch, .ch:has(+ .ch:hover) { transform: translateY(-.06em) rotate(2deg); }
+.headline3d .it .ch:hover { color: var(--tomato); }
+.hint { margin-top: 14px; color: var(--dim); }
+@media (hover: none) { .hint .mouse { display: none; } }
+@media (hover: hover) { .hint .touch { display: none; } }
 .hero-foot { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: clamp(32px, 5vw, 64px); align-items: end; }
 @media (min-width: 860px) { .hero-foot { grid-template-columns: auto minmax(0, 1fr) auto; gap: 40px; } }
 .me { display: flex; align-items: center; gap: 16px; }
@@ -225,24 +257,24 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
 </header>
 
 <section class="hero pad" id="top">
-  <div class="hero-bg" aria-hidden="true"><video src="video/rome-sumdayz.mp4" poster="img/bl/poster-rome-sumdayz.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="slate mono">
-    <span>Live from <b>São Paulo</b></span>
-    <span>Growth &amp; Partnerships</span>
-    <span>Crypto · Web3 · Fintech</span>
+    <span>Based in <b>São Paulo</b> · working worldwide</span>
+    <span>Growth · Partnerships · Community · Live experiences</span>
   </div>
-  <h1 class="headline">
-    <span class="row">I grow <span class="pill"><img src="img/f1-paddock-red-bull-car.jpg" alt=""></span> brands</span>
-    <span class="row">across <span class="it">Latin</span> <span class="pill"><img src="img/crypto-day-sao-paulo.jpg" alt=""></span></span>
-    <span class="row">America <span class="pill"><img src="img/bl/family.jpg" alt=""></span> live,</span>
-    <span class="row">with <span class="it">people.</span></span>
-  </h1>
+  <div class="stage3d" id="stage3d">
+    <h1 class="headline3d" id="h3d" aria-label="I turn attention into growth.">
+      <span class="row" aria-hidden="true"><span class="w">I</span> <span class="w">turn</span></span>
+      <span class="row" aria-hidden="true"><span class="w">attention</span></span>
+      <span class="row" aria-hidden="true"><span class="w">into</span> <span class="w it">growth.</span></span>
+    </h1>
+  </div>
   <div class="hero-foot">
     <div class="me">
       <img src="img/caue.jpg" alt="Portrait of Cauê Carvalho">
       <div><b>Cauê Carvalho</b><span>Ex-KuCoin · Ex-Gate · Head of Socials at Ultima Markets</span></div>
     </div>
-    <p class="lede">KOLs, traders, creators, partners and the live moments that bring them together: F1 paddocks, event booths, X Spaces and festivals.</p>
+    <p class="lede">Marketing, communications and social media built to convert: campaigns, content, community and partnerships that turn audiences into customers.</p>
     <a class="cta" href="#contact">Let's talk ↘</a>
   </div>
 </section>
@@ -262,15 +294,16 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
 <main class="channels">
   <section class="channel c-blue pad" aria-labelledby="ch-gate">
     <div class="ch-top mono"><span>Gate · Head of Communications LATAM</span><span>2025</span></div>
-    <h3 class="ch-title" id="ch-gate">Into the <span class="it">Red Bull</span> paddock</h3>
+    <h3 class="ch-title" id="ch-gate">The <span class="it">voice</span> of Gate in LATAM</h3>
     <div class="ch-grid">
       <div class="ch-text">
-        <p>I created Gate's F1 experience at the São Paulo Grand Prix and brought Brazil's top streamers, YouTubers and podcasters inside the Oracle Red Bull Racing garage. Then I designed the booths that people queued for at Blockchain Rio and Crypto:Day.</p>
+        <p>As Head of Communications, I ran Gate's Telegram, Instagram and X in Portuguese and Spanish, rebuilding every channel to be safer and more professional. Around the content, I added KOL programs, paid social and live moments, from booths at Blockchain Rio and Crypto:Day to bringing Brazil's top creators into the Red Bull Racing garage at the São Paulo Grand Prix.</p>
         <ul>
-          <li>Creator guest list, access and on-site content</li>
-          <li>700+ sign-ups at the Blockchain Rio booth</li>
-          <li>A booth format competitors later copied</li>
+          <li>Closed IBs and KOLs that helped drive ~US$400M in monthly team volume</li>
           <li>80+ localized posts a day in Portuguese and Spanish</li>
+          <li>Weekly KOL AMAs with 500+ participants</li>
+          <li>Paid social and A/B-tested KOL campaigns</li>
+          <li>700+ sign-ups at Blockchain Rio, a booth format competitors later copied</li>
         </ul>
       </div>
       <div class="collage">
@@ -284,16 +317,16 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
 
   <section class="channel c-mint pad" aria-labelledby="ch-kucoin">
     <div class="ch-top mono"><span>KuCoin · Head of Growth LATAM</span><span>2026</span></div>
-    <h3 class="ch-title" id="ch-kucoin">From São Paulo to <span class="it">Tomorrowland</span></h3>
+    <h3 class="ch-title" id="ch-kucoin">Building the <span class="it">growth</span> engine</h3>
     <div class="ch-grid">
       <div class="ch-text">
-        <p>I led user acquisition across Portuguese- and Spanish-speaking Latin America, sourcing and closing high-impact KOLs and IBs together with the BD team, and bringing them together in person.</p>
+        <p>As Head of Growth, I led user acquisition and market expansion across Portuguese- and Spanish-speaking Latin America. With the BD team I sourced and closed high-impact KOLs and IBs, then kept them engaged through content, community, loyalty rewards and in-person moments, from a São Paulo meetup to KuCoin's Tomorrowland Winter activation.</p>
         <ul>
-          <li>Hosted a KuCoin meetup in São Paulo for KOLs, IBs and traders</li>
-          <li>On the ground at KuCoin's Tomorrowland Winter activation in the French Alps, launching the KuCard waitlist</li>
+          <li>KOL and IB partnerships sourced and closed with BD</li>
           <li>Weekly AMAs and X Spaces with 800+ live participants</li>
+          <li>20+ localized posts a day across Telegram, X and Instagram</li>
           <li>Superuser loyalty program, weekly rewards and A/B-tested paid social</li>
-          <li>Cross-functional team across BD, support and communications</li>
+          <li>Led a cross-functional team across BD, support and communications</li>
         </ul>
       </div>
       <div class="collage">
@@ -443,7 +476,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
 
   <section class="contact" id="contact">
     <h2>Let's go <span class="it">live.</span></h2>
-    <p>I'm open to growth, partnerships and go-to-market roles in crypto, Web3 and fintech. Remote or São Paulo.</p>
+    <p>I'm open to growth, partnerships, community and go-to-market roles, in any industry where people and attention drive results. Remote, hybrid or on-site.</p>
     <div class="actions">
       <span class="email" id="email">cauecarvalhosantista@gmail.com</span>
       <button class="btn" id="copy" type="button">Copy email</button>
@@ -484,6 +517,27 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
   addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) shut(); });
 
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 3D headline: split words into letters, then tilt the block and swing the extrusion toward the pointer.
+  var h3d = document.getElementById('h3d'), hero = document.getElementById('top');
+  h3d.querySelectorAll('.w').forEach(function (w) {
+    var t = w.textContent; w.textContent = '';
+    for (var i = 0; i < t.length; i++) { var s = document.createElement('span'); s.className = 'ch'; s.textContent = t[i]; w.appendChild(s); }
+  });
+  if (!reduce) {
+    var tx = 0, ty = 0, cx = 0, cy = 0, lastMove = -1e9;
+    function aim(x, y) { tx = Math.max(-1, Math.min(1, (x / innerWidth - .5) * 2)); ty = Math.max(-1, Math.min(1, (y / innerHeight - .45) * 2)); lastMove = performance.now(); }
+    addEventListener('pointermove', function (e) { aim(e.clientX, e.clientY); }, { passive: true });
+    addEventListener('touchmove', function (e) { if (e.touches[0]) aim(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+    (function frame(now) {
+      if (now - lastMove > 2500) { tx = Math.sin(now / 1800) * .55; ty = Math.cos(now / 2300) * .35; }
+      cx += (tx - cx) * .08; cy += (ty - cy) * .08;
+      h3d.style.setProperty('--rx', cx.toFixed(3)); h3d.style.setProperty('--ry', cy.toFixed(3));
+      h3d.style.setProperty('--sx', (-cx * 1.6).toFixed(3)); h3d.style.setProperty('--sy', (.7 - cy * 1.2).toFixed(3));
+      hero.style.setProperty('--gx', (50 + cx * 30).toFixed(1) + '%'); hero.style.setProperty('--gy', (45 + cy * 25).toFixed(1) + '%');
+      requestAnimationFrame(frame);
+    })(performance.now());
+  }
   if (reduce) document.querySelectorAll('video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
 
   var cur = document.getElementById('cursor');
