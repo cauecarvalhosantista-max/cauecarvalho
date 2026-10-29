@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Cauê Carvalho: growth and partnerships for crypto, Web3 and fintech brands across Latin America. Ex-KuCoin, ex-Gate.">
+<meta property="og:title" content="Cauê Carvalho · Growth & Partnerships">
+<meta property="og:description" content="Growth, KOLs, partnerships and live experiences for crypto, Web3 and fintech brands across Latin America.">
+<meta property="og:image" content="img/f1-paddock-red-bull-car.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%23ff3b30'/%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Cauê Carvalho Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Concept: "On Air". Cauê grows brands live — paddocks, booths, Spaces, festivals.
+   Layout: a broadcast-style hero with photos set inside giant type, then full-colour "channels"
+   (one per project) that stack over each other as you scroll, ending on a sign-off card. */
+:root {
+  --ink: #0e0e10;
+  --paper: #f3f1ec;
+  --dim: #8a8890;
+  --blue: #2b4bff;
+  --mint: #1fd189;
+  --orchid: #c8a2ff;
+  --tomato: #ff5436;
+  --sun: #ffd23f;
+  --rose: #ff86b8;
+  --wide: "Archivo", "Arial Black", Impact, sans-serif;
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --gut: max(16px, env(safe-area-inset-left, 0px));
+  --gutR: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: dark;
+}
+@media (min-width: 760px) { :root { --gut: max(36px, env(safe-area-inset-left, 0px)); --gutR: max(36px, env(safe-area-inset-right, 0px)); } }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--ink); color: var(--paper); font-family: var(--wide); font-variation-settings: "wdth" 100; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+p, h1, h2, h3, h4, figure { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+:focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; border-radius: 6px; }
+.pad { padding-left: var(--gut); padding-right: var(--gutR); }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+.it { font-family: var(--serif); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+/* Top bar */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--ink); }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; mix-blend-mode: difference; color: #fff; }
+.onair { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.onair i { width: 10px; height: 10px; border-radius: 50%; background: #ff3b30; animation: blink 1.6s steps(2, start) infinite; }
+.onair b { font-weight: 800; font-variation-settings: "wdth" 125; font-size: 15px; letter-spacing: .02em; text-transform: uppercase; }
+@keyframes blink { to { opacity: .25; } }
+.bar nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.bar nav a { text-decoration: none; }
+.bar nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; padding-block: 40px 56px; isolation: isolate; }
+.hero-bg { position: absolute; inset: 0; z-index: -1; }
+.hero-bg video { width: 100%; height: 100%; object-fit: cover; opacity: .28; filter: saturate(1.2); }
+.hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,14,16,.35), var(--ink) 92%); }
+.slate { display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--dim); margin-bottom: clamp(28px, 5vw, 56px); }
+.slate span b { color: var(--paper); font-weight: 500; }
+.headline { font-size: clamp(40px, 9.6vw, 156px); line-height: .9; font-weight: 850; font-variation-settings: "wdth" 118; text-transform: uppercase; letter-spacing: -.02em; }
+.headline .row { display: block; }
+.headline .it { color: var(--sun); font-size: 1.08em; letter-spacing: -.01em; }
+.pill { display: inline-block; vertical-align: -.06em; height: .78em; width: 1.9em; border-radius: 999px; overflow: hidden; margin-inline: .08em; background: #222; position: relative; transform: rotate(-3deg); }
+.pill:nth-of-type(2n) { transform: rotate(3deg); }
+.pill img, .pill video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-foot { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: clamp(32px, 5vw, 64px); align-items: end; }
+@media (min-width: 860px) { .hero-foot { grid-template-columns: auto minmax(0, 1fr) auto; gap: 40px; } }
+.me { display: flex; align-items: center; gap: 16px; }
+.me img { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; border: 3px solid var(--sun); }
+.me b { display: block; font-size: 22px; font-weight: 800; font-variation-settings: "wdth" 110; line-height: 1.1; }
+.me span { color: var(--dim); font-size: 15px; }
+.hero-foot p.lede { max-width: 46ch; font-size: 18px; color: #cfccd4; }
+.cta { display: inline-flex; align-items: center; gap: 10px; background: var(--sun); color: var(--ink); text-decoration: none; font-weight: 800; font-variation-settings: "wdth" 115; text-transform: uppercase; font-size: 15px; padding: 16px 22px; border-radius: 999px; transition: transform .25s; justify-self: start; }
+.cta:hover { transform: rotate(-3deg) scale(1.04); }
+
+/* Ticker */
+.ticker { overflow: hidden; border-block: 1px solid #2a2a2e; padding-block: 14px; }
+.track { display: flex; width: max-content; animation: slide 40s linear infinite; }
+.track.rev { animation-direction: reverse; animation-duration: 46s; }
+.track span { font-size: clamp(28px, 4.6vw, 64px); font-weight: 900; font-variation-settings: "wdth" 125; text-transform: uppercase; white-space: nowrap; padding-right: .5em; color: transparent; -webkit-text-stroke: 1.5px #57555c; }
+.track span.f { color: var(--paper); -webkit-text-stroke: 0; }
+.track span em { font-style: normal; color: var(--tomato); -webkit-text-stroke: 0; padding-left: .5em; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* Channels */
+.channels-head { padding-block: 96px 40px; display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px; }
+.channels-head h2 { font-size: clamp(48px, 9vw, 140px); line-height: .88; font-weight: 900; font-variation-settings: "wdth" 125; text-transform: uppercase; letter-spacing: -.02em; }
+.channels-head p { max-width: 36ch; color: var(--dim); }
+.channel { position: sticky; top: 0; border-radius: 32px 32px 0 0; padding-block: clamp(28px, 4vw, 48px) clamp(48px, 7vw, 96px); min-height: 92vh; box-shadow: 0 -24px 60px -20px rgba(0,0,0,.5); }
+.ch-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 2px solid currentColor; margin-bottom: clamp(24px, 4vw, 44px); }
+.ch-title { font-size: clamp(44px, 8.4vw, 132px); line-height: .88; font-weight: 900; font-variation-settings: "wdth" 120; text-transform: uppercase; letter-spacing: -.025em; margin-bottom: clamp(22px, 3vw, 36px); }
+.ch-title .it { font-size: 1.05em; }
+.ch-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+@media (min-width: 900px) { .ch-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 48px; align-items: start; } }
+.ch-text { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.ch-text .role { font-weight: 800; font-variation-settings: "wdth" 112; text-transform: uppercase; font-size: 18px; }
+.ch-text p { max-width: 50ch; font-size: 18px; }
+.ch-text ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; }
+.ch-text li { padding-block: 10px; border-top: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
+.ch-text li:last-child { border-bottom: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
+
+.c-blue { background: var(--blue); color: #fff; }
+.c-mint { background: var(--mint); color: var(--ink); }
+.c-orchid { background: var(--orchid); color: var(--ink); }
+.c-tomato { background: var(--tomato); color: var(--ink); }
+.c-ink { background: #19191c; color: var(--paper); }
+.c-rose { background: var(--rose); color: var(--ink); }
+
+/* Media */
+.shot { border: 0; padding: 0; margin: 0; display: block; width: 100%; height: 100%; position: relative; overflow: hidden; border-radius: 18px; background: rgba(0,0,0,.2); cursor: zoom-in; }
+.shot img, .tile video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+.shot:hover img { transform: scale(1.05); }
+.collage { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(70px, 9vw, 120px); gap: 10px; }
+.collage > * { min-width: 0; }
+.g1 { grid-column: 1 / 5; grid-row: span 3; }
+.g2 { grid-column: 5 / 7; grid-row: span 3; }
+.g3 { grid-column: 1 / 3; grid-row: span 3; }
+.g4 { grid-column: 3 / 7; grid-row: span 3; }
+.sticker { position: absolute; z-index: 2; background: var(--sun); color: var(--ink); padding: 8px 12px; border-radius: 10px; transform: rotate(-5deg); font-weight: 800; font-variation-settings: "wdth" 115; text-transform: uppercase; font-size: 13px; line-height: 1.2; }
+
+/* Typographic stat block for channels without photos yet */
+.bigstat { border-radius: 22px; border: 2px solid currentColor; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; min-height: 360px; position: relative; overflow: hidden; }
+.bigstat strong { font-size: clamp(96px, 17vw, 240px); line-height: .8; font-weight: 900; font-variation-settings: "wdth" 125; letter-spacing: -.04em; }
+.bigstat .row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.bigstat .row2 b { display: block; font-size: clamp(32px, 4vw, 52px); font-weight: 900; font-variation-settings: "wdth" 120; line-height: 1; }
+
+/* Sound wave for the Spaces channel */
+.wave { display: flex; align-items: center; gap: 6px; height: 140px; }
+.wave i { flex: 1; background: var(--ink); border-radius: 99px; height: 30%; animation: eq 1.1s ease-in-out infinite alternate; }
+.wave i:nth-child(3n) { animation-duration: .8s; }
+.wave i:nth-child(4n+1) { animation-duration: 1.4s; }
+.wave i:nth-child(5n+2) { animation-delay: -.5s; }
+@keyframes eq { from { height: 12%; } to { height: 100%; } }
+
+/* BrightLeaf art wall */
+.artwall-wrap { container-type: inline-size; margin-top: 28px; }
+.artwall { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: calc((100cqw - 10px) / 2); grid-auto-flow: dense; gap: 10px; }
+@media (min-width: 760px) { .artwall { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: calc((100cqw - 36px) / 4); gap: 12px; } }
+.tile { border-radius: 16px; overflow: hidden; position: relative; background: rgba(0,0,0,.15); min-width: 0; }
+.tile.big { grid-column: span 2; grid-row: span 2; }
+.tile.w2 { grid-column: span 2; }
+.tile.t2 { grid-row: span 2; }
+.tile figcaption { position: absolute; left: 10px; bottom: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; background: rgba(14,14,16,.75); color: var(--paper); padding: 5px 9px; border-radius: 6px; }
+.tile figcaption::before { content: "● "; color: #ff3b30; }
+
+/* More work */
+.list { margin-top: 8px; }
+.list-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding-block: 18px; border-top: 1px solid #3a3a40; transition: padding .3s, color .3s; }
+.list-row:last-child { border-bottom: 1px solid #3a3a40; }
+@media (min-width: 760px) { .list-row { grid-template-columns: 120px minmax(0, 1fr) minmax(0, 1.3fr); gap: 24px; align-items: baseline; } .list-row:hover { padding-left: 14px; color: var(--sun); } }
+.list-row h4 { font-size: clamp(24px, 3vw, 38px); font-weight: 900; font-variation-settings: "wdth" 120; text-transform: uppercase; line-height: 1; }
+.list-row p { color: #b9b6bf; }
+.list-row:hover p { color: inherit; }
+
+/* Sign-off */
+.signoff { position: relative; z-index: 2; background: var(--ink); padding-block: 96px 40px; }
+.numbers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; margin-bottom: 96px; }
+@media (min-width: 900px) { .numbers { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.numbers div { border-top: 2px solid var(--paper); padding-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+.numbers strong { white-space: nowrap; font-size: clamp(38px, 5vw, 76px); line-height: .9; font-weight: 900; font-variation-settings: "wdth" 125; font-variant-numeric: tabular-nums; }
+.numbers span { color: var(--dim); font-size: 15px; }
+.about { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: center; margin-bottom: 96px; }
+@media (min-width: 900px) { .about { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 64px; } }
+.portrait { position: relative; max-width: 440px; }
+.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: 220px 220px 24px 24px; }
+.portrait .sticker { right: -6px; bottom: 26px; transform: rotate(6deg); }
+.about h2 { font-size: clamp(36px, 5.4vw, 76px); line-height: .95; font-weight: 900; font-variation-settings: "wdth" 115; text-transform: uppercase; margin-bottom: 22px; }
+.about h2 .it { color: var(--orchid); }
+.about p { color: #cfccd4; max-width: 58ch; margin-bottom: 14px; }
+.langs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.langs span { border: 1.5px solid var(--paper); border-radius: 999px; padding: 6px 14px; font-weight: 700; font-variation-settings: "wdth" 110; text-transform: uppercase; font-size: 14px; }
+.langs span:nth-child(1) { background: var(--mint); color: var(--ink); border-color: var(--mint); }
+.langs span:nth-child(2) { background: var(--tomato); color: var(--ink); border-color: var(--tomato); }
+.langs span:nth-child(3) { background: var(--blue); color: #fff; border-color: var(--blue); }
+.langs span:nth-child(4) { background: var(--orchid); color: var(--ink); border-color: var(--orchid); }
+
+.contact { background: var(--sun); color: var(--ink); border-radius: 32px; padding: clamp(28px, 6vw, 72px); overflow: hidden; }
+.contact h2 { font-size: clamp(56px, 13vw, 210px); line-height: .82; font-weight: 900; font-variation-settings: "wdth" 125; text-transform: uppercase; letter-spacing: -.03em; margin-bottom: 28px; }
+.contact h2 .it { font-size: 1.05em; }
+.contact p { font-size: 19px; max-width: 46ch; margin-bottom: 24px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.email { font-family: var(--mono); font-size: clamp(14px, 2vw, 18px); background: rgba(14,14,16,.08); padding: 13px 16px; border-radius: 12px; user-select: all; overflow-wrap: anywhere; }
+.btn { font: 800 15px var(--wide); font-variation-settings: "wdth" 115; text-transform: uppercase; border-radius: 999px; padding: 14px 20px; border: 2px solid var(--ink); background: var(--ink); color: var(--sun); cursor: pointer; text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn:focus-visible { outline-color: var(--ink); }
+footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 32px; color: var(--dim); }
+
+/* Cursor label for images (mouse only) */
+.cursor { position: fixed; left: 0; top: 0; z-index: 40; pointer-events: none; width: 84px; height: 84px; margin: -42px 0 0 -42px; border-radius: 50%; background: var(--sun); color: var(--ink); display: grid; place-items: center; font-weight: 900; font-variation-settings: "wdth" 120; text-transform: uppercase; font-size: 13px; transform: scale(0); transition: transform .25s; }
+.cursor.on { transform: scale(1); }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; z-index: 50; background: rgba(8,8,10,.94); display: grid; place-items: center; padding: max(20px, env(safe-area-inset-top, 0px)) var(--gutR) max(20px, env(safe-area-inset-bottom, 0px)) var(--gut); }
+.lightbox[hidden] { display: none; }
+.lightbox img { max-height: 82vh; width: auto; border-radius: 14px; }
+.lightbox figcaption { text-align: center; margin-top: 14px; color: var(--paper); }
+.lightbox button { position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: calc(16px + env(safe-area-inset-right, 0px)); background: var(--sun); color: var(--ink); border: 0; border-radius: 999px; padding: 10px 18px; font: 800 14px var(--wide); text-transform: uppercase; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  .track, .wave i, .onair i { animation: none; }
+  .track { flex-wrap: wrap; width: auto; }
+  .shot img { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="bar pad">
+  <a class="onair" href="#top"><i></i><b>Cauê Carvalho</b></a>
+  <nav class="mono" aria-label="Sections">
+    <a href="#channels">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero pad" id="top">
+  <div class="hero-bg" aria-hidden="true"><video src="video/rome-sumdayz.mp4" poster="img/bl/poster-rome-sumdayz.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+  <div class="slate mono">
+    <span>Live from <b>São Paulo</b></span>
+    <span>Growth &amp; Partnerships</span>
+    <span>Crypto · Web3 · Fintech</span>
+  </div>
+  <h1 class="headline">
+    <span class="row">I grow <span class="pill"><img src="img/f1-paddock-red-bull-car.jpg" alt=""></span> brands</span>
+    <span class="row">across <span class="it">Latin</span> <span class="pill"><img src="img/crypto-day-sao-paulo.jpg" alt=""></span></span>
+    <span class="row">America <span class="pill"><img src="img/bl/family.jpg" alt=""></span> live,</span>
+    <span class="row">with <span class="it">people.</span></span>
+  </h1>
+  <div class="hero-foot">
+    <div class="me">
+      <img src="img/caue.jpg" alt="Portrait of Cauê Carvalho">
+      <div><b>Cauê Carvalho</b><span>Ex-KuCoin · Ex-Gate · Head of Socials at Ultima Markets</span></div>
+    </div>
+    <p class="lede">KOLs, traders, creators, partners and the live moments that bring them together: F1 paddocks, event booths, X Spaces and festivals.</p>
+    <a class="cta" href="#contact">Let's talk ↘</a>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Brands I've worked with">
+  <div class="track">
+    <span class="f">KuCoin</span><span>Gate<em>✦</em></span><span class="f">Red Bull Racing</span><span>Ultima Markets<em>✦</em></span><span class="f">=nil; Foundation</span><span>Havana Club<em>✦</em></span><span class="f">Vice / Noisey</span><span>Dolce &amp; Gabbana<em>✦</em></span><span class="f">Tomorrowland</span><span>True Passion<em>✦</em></span>
+    <span class="f" aria-hidden="true">KuCoin</span><span aria-hidden="true">Gate<em>✦</em></span><span class="f" aria-hidden="true">Red Bull Racing</span><span aria-hidden="true">Ultima Markets<em>✦</em></span><span class="f" aria-hidden="true">=nil; Foundation</span><span aria-hidden="true">Havana Club<em>✦</em></span><span class="f" aria-hidden="true">Vice / Noisey</span><span aria-hidden="true">Dolce &amp; Gabbana<em>✦</em></span><span class="f" aria-hidden="true">Tomorrowland</span><span aria-hidden="true">True Passion<em>✦</em></span>
+  </div>
+</div>
+
+<div class="channels-head pad" id="channels">
+  <h2>Now<br>showing</h2>
+  <p>Campaigns, launches and live experiences for global exchanges, Web3 projects and lifestyle brands. Scroll through the channels.</p>
+</div>
+
+<main class="channels">
+  <section class="channel c-blue pad" aria-labelledby="ch-gate">
+    <div class="ch-top mono"><span>Gate · Head of Communications LATAM</span><span>2025</span></div>
+    <h3 class="ch-title" id="ch-gate">Into the <span class="it">Red Bull</span> paddock</h3>
+    <div class="ch-grid">
+      <div class="ch-text">
+        <p>I created Gate's F1 experience at the São Paulo Grand Prix and brought Brazil's top streamers, YouTubers and podcasters inside the Oracle Red Bull Racing garage. Then I designed the booths that people queued for at Blockchain Rio and Crypto:Day.</p>
+        <ul>
+          <li>Creator guest list, access and on-site content</li>
+          <li>700+ sign-ups at the Blockchain Rio booth</li>
+          <li>A booth format competitors later copied</li>
+          <li>80+ localized posts a day in Portuguese and Spanish</li>
+        </ul>
+      </div>
+      <div class="collage">
+        <button class="shot g1" data-cap="Pit lane with the Red Bull Racing car, São Paulo GP"><img src="img/f1-paddock-red-bull-car.jpg" alt="Cauê beside the Red Bull Racing car in the pit lane" loading="lazy"></button>
+        <button class="shot g2" data-cap="Creators at the Oracle Red Bull Racing garage"><img src="img/f1-red-bull-garage-group.jpg" alt="Group of creators in front of the Red Bull Racing garage wall" loading="lazy"></button>
+        <button class="shot g3" data-cap="With the Red Bull Racing team"><img src="img/f1-red-bull-team.jpg" alt="Cauê with two Red Bull Racing team members" loading="lazy"></button>
+        <button class="shot g4" data-cap="Gate booth with F1 simulator and prize wheel"><img src="img/gate-red-bull-booth.jpg" alt="Gate booth with an F1 racing simulator and prize wheel" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="channel c-mint pad" aria-labelledby="ch-kucoin">
+    <div class="ch-top mono"><span>KuCoin · Head of Growth LATAM</span><span>2026</span></div>
+    <h3 class="ch-title" id="ch-kucoin">From São Paulo to <span class="it">Tomorrowland</span></h3>
+    <div class="ch-grid">
+      <div class="ch-text">
+        <p>I led user acquisition across Portuguese- and Spanish-speaking Latin America, sourcing and closing high-impact KOLs and IBs together with the BD team, and bringing them together in person.</p>
+        <ul>
+          <li>Hosted a KuCoin meetup in São Paulo for KOLs, IBs and traders</li>
+          <li>On the ground at KuCoin's Tomorrowland Winter activation in the French Alps, launching the KuCard waitlist</li>
+          <li>Weekly AMAs and X Spaces with 800+ live participants</li>
+          <li>Superuser loyalty program, weekly rewards and A/B-tested paid social</li>
+          <li>Cross-functional team across BD, support and communications</li>
+        </ul>
+      </div>
+      <div class="collage">
+        <button class="shot" style="grid-column:1/5;grid-row:span 3" data-cap="KuCoin meetup with KOLs, IBs and traders, São Paulo"><img src="img/kc/sp-event.jpg" alt="Large group of KOLs, IBs and traders in front of a KuCoin screen in São Paulo" loading="lazy"></button>
+        <button class="shot" style="grid-column:5/7;grid-row:span 3" data-cap="Tomorrowland Winter, Alpe d'Huez"><img src="img/kc/tml-flag.jpg" alt="Team holding a KuCoin flag under the Tomorrowland gazebo in Alpe d'Huez" loading="lazy"></button>
+        <button class="shot" style="grid-column:1/3;grid-row:span 3" data-cap="KuCoin crew on the slopes"><img src="img/kc/tml-skis.jpg" alt="Performer in a green KuCoin costume with wings walking among skiers" loading="lazy"></button>
+        <button class="shot" style="grid-column:3/7;grid-row:span 3" data-cap="KuCoin performers at Tomorrowland Winter"><img src="img/kc/tml-crew.jpg" alt="Group of performers in green KuCoin costumes with wings in the snow" loading="lazy"></button>
+        <button class="shot" style="grid-column:1/3;grid-row:span 3" data-cap="KuCard waitlist, live at the festival"><img src="img/kc/tml-kucard.jpg" alt="Phone showing the KuCoin KuCard waitlist page for Tomorrowland" loading="lazy"></button>
+        <div class="bigstat" style="grid-column:3/7;grid-row:span 3;min-height:0">
+          <span class="mono">Live participants per weekly AMA</span>
+          <strong style="font-size:clamp(64px,9vw,128px)">800+</strong>
+          <div class="row2">
+            <div><b>20+</b><span>localized posts a day</span></div>
+            <div><b>12</b><span>people across BD, support and comms</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="channel c-orchid pad" aria-labelledby="ch-bl">
+    <div class="ch-top mono"><span>BrightLeaf Laboratories · Co-Founder &amp; Head of Growth</span><span>2021–2024</span></div>
+    <h3 class="ch-title" id="ch-bl">Sold out in <span class="it">ten</span> minutes</h3>
+    <div class="ch-grid">
+      <div class="ch-text">
+        <p>I assembled the founding team and led marketing, communications and community for a 3D NFT collection on Cardano: robots that grow plants, tied to real reforestation. After nine months of building, it sold out in under 10 minutes and raised US$400k+.</p>
+        <ul>
+          <li>Community from 0 to 5,000 members in one month</li>
+          <li>20,000+ trees planted in the Amazon rainforest</li>
+          <li>Invited to The Mews in Monaco, where we met the Prince of Monaco</li>
+          <li>Took the brand to Sumdayz Festival in Rome</li>
+        </ul>
+      </div>
+      <div style="position:relative">
+        <button class="shot" style="aspect-ratio:16/10" data-cap="With our developer at The Mews, Monaco"><img src="img/bl/mews-monaco.jpg" alt="Cauê and the BrightLeaf developer on stage beside the MEWS letters in Monaco" loading="lazy"></button>
+        <span class="sticker" style="left:-8px;bottom:18px">The Mews · Monaco</span>
+      </div>
+    </div>
+    <div class="artwall-wrap"><div class="artwall" aria-label="BrightLeaf artwork and campaign videos">
+      <button class="shot tile big" data-cap="BrightLeaf grower and its baby bot"><img src="img/bl/family.jpg" alt="Pink BrightLeaf robot covered in orchids holding a small yellow robot" loading="lazy"></button>
+      <figure class="tile w2"><video src="video/rome-sumdayz.mp4" poster="img/bl/poster-rome-sumdayz.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption>Sumdayz Festival, Rome</figcaption></figure>
+      <button class="shot tile" data-cap="Launch teaser, Cardano mainnet"><img src="img/bl/lab.jpg" alt="White BrightLeaf robot with vines and terminal text" loading="lazy"></button>
+      <button class="shot tile" data-cap="Orchid grower"><img src="img/bl/orchid.jpg" alt="Magenta and yellow robot draped in orchids" loading="lazy"></button>
+      <figure class="tile t2"><video src="video/airdrop.mp4" muted loop playsinline autoplay preload="metadata"></video><figcaption>OG Christmas airdrop</figcaption></figure>
+      <button class="shot tile t2" data-cap="Mint countdown poster"><img src="img/bl/poster.jpg" alt="Lime green robot wrapped in begonia leaves" loading="lazy"></button>
+      <button class="shot tile" data-cap="Night grower"><img src="img/bl/fuchsia.jpg" alt="Green and lilac robot with pink leaves" loading="lazy"></button>
+      <figure class="tile"><video src="video/mews-monaco.mp4" muted loop playsinline autoplay preload="metadata"></video><figcaption>Mews Awards</figcaption></figure>
+      <button class="shot tile" data-cap="Forest hunter"><img src="img/bl/hunter.jpg" alt="Moss-covered robot holding a spear" loading="lazy"></button>
+      <button class="shot tile" data-cap="Courier"><img src="img/bl/courier.jpg" alt="White and blue courier robot carrying a jar of orchids" loading="lazy"></button>
+      <button class="shot tile" data-cap="Spring equinox drop"><img src="img/bl/butterfly.jpg" alt="Blue butterfly on orchids held by a robot" loading="lazy"></button>
+      <button class="shot tile w2" data-cap="Material detail"><img src="img/bl/detail.jpg" alt="Close-up of iridescent robot armour with roots" loading="lazy"></button>
+      <figure class="tile"><video src="video/pride.mp4" muted loop playsinline autoplay preload="metadata"></video><figcaption>Pride month</figcaption></figure>
+    </div></div>
+  </section>
+
+  <section class="channel c-tomato pad" aria-labelledby="ch-spaces">
+    <div class="ch-top mono"><span>Host &amp; producer · 5+ companies</span><span>2023 – today</span></div>
+    <h3 class="ch-title" id="ch-spaces">150+ Spaces, <span class="it">live</span></h3>
+    <div class="ch-grid">
+      <div class="ch-text">
+        <p>I've organized and hosted more than 150 X Spaces, inviting every guest myself. It's my most effective channel for organic growth, and it builds trust that ads can't buy.</p>
+        <ul>
+          <li>1,000+ live listeners on the biggest sessions</li>
+          <li>Guests from exchanges, protocols and creator communities</li>
+          <li>Weekly KOL AMAs at Gate and KuCoin</li>
+        </ul>
+      </div>
+      <div class="bigstat">
+        <span class="mono">● Recording · X Spaces</span>
+        <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="row2">
+          <div><b>150+</b><span>Spaces hosted</span></div>
+          <div><b>1,000+</b><span>live listeners</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="channel c-rose pad" aria-labelledby="ch-tp">
+    <div class="ch-top mono"><span>True Passion · Co-Founder &amp; Marketing Director · Rome &amp; London</span><span>2016–2021</span></div>
+    <h3 class="ch-title" id="ch-tp">Where content <span class="it">meets</span> the stage</h3>
+    <div class="ch-grid">
+      <div class="ch-text">
+        <p>I co-founded a content and live music brand: music videos, cyphers, interviews and series on YouTube, clothing drops, and sold-out live shows in Rome and London.</p>
+        <ul>
+          <li>Led a team of 10 across shoots and live productions</li>
+          <li>Grew Instagram from 0 to 10k and monetized a YouTube channel of cyphers, interviews and music series</li>
+          <li>Partnered with Havana Club, Vice/Noisey, Soundreef and Universal</li>
+          <li>Managed budgets, A/B-tested campaigns and secured every event permit</li>
+        </ul>
+      </div>
+      <div style="position:relative">
+        <button class="shot" style="aspect-ratio:4/3" data-cap="True Passion live show, Rome"><img src="img/tp/outdoor-crowd.jpg" alt="Outdoor stage at night facing a packed crowd" loading="lazy"></button>
+        <span class="sticker" style="left:-8px;bottom:18px">Rome · London</span>
+      </div>
+    </div>
+    <div class="artwall-wrap"><div class="artwall" aria-label="True Passion collections, shows and videos">
+      <figure class="tile big"><video src="video/tp-live-pink.mp4" poster="img/tp/poster-live-pink.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption>Live show</figcaption></figure>
+      <button class="shot tile t2" data-cap="Lifeglued tee"><img src="img/tp/lifeglued.jpg" alt="Two people at the beach in yellow True Passion Lifeglued tees" loading="lazy"></button>
+      <button class="shot tile t2" data-cap="Heart logo tie-dye tee"><img src="img/tp/tiedye.jpg" alt="Model in a purple tie-dye True Passion heart tee" loading="lazy"></button>
+      <figure class="tile w2"><video src="video/tp-cypher.mp4" poster="img/tp/poster-cypher.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption>Cypher, London</figcaption></figure>
+      <button class="shot tile" data-cap="On stage with the crowd"><img src="img/tp/stage-selfie.jpg" alt="Artist taking a selfie with the crowd from the stage" loading="lazy"></button>
+      <button class="shot tile" data-cap="Backstage"><img src="img/tp/backstage.jpg" alt="Person in a yellow True Passion sweatshirt beside the stage" loading="lazy"></button>
+      <figure class="tile w2"><video src="video/tp-brighton.mp4" poster="img/tp/poster-brighton.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption>Music video, Brighton</figcaption></figure>
+      <button class="shot tile" data-cap="Flaming heart tee"><img src="img/tp/heart-tee.jpg" alt="Back of a pink tee with a flaming heart print" loading="lazy"></button>
+      <button class="shot tile" data-cap="Logo tee detail"><img src="img/tp/tee-detail.jpg" alt="Close-up of a white True Passion tee print" loading="lazy"></button>
+      <button class="shot tile" data-cap="Embroidered hoodie"><img src="img/tp/hoodie.jpg" alt="Model in a white True Passion hoodie on a teal background" loading="lazy"></button>
+      <button class="shot tile" data-cap="Artist in True Passion"><img src="img/tp/yellow-crew.jpg" alt="Artist in a yellow True Passion sweatshirt making a hand sign" loading="lazy"></button>
+      <button class="shot tile" data-cap="Live night"><img src="img/tp/stage-jump.jpg" alt="Artists jumping on stage in front of the crowd" loading="lazy"></button>
+      <button class="shot tile" data-cap="DJ set"><img src="img/tp/bar-dj.jpg" alt="Crowd with hands up at a DJ set in a bar" loading="lazy"></button>
+      <figure class="tile w2"><video src="video/tp-live-red.mp4" poster="img/tp/poster-live-red.jpg" muted loop playsinline autoplay preload="metadata"></video><figcaption>Live show</figcaption></figure>
+    </div></div>
+  </section>
+
+  <section class="channel c-ink pad" aria-labelledby="ch-more">
+    <div class="ch-top mono"><span>More channels</span><span>2016 – now</span></div>
+    <h3 class="ch-title" id="ch-more">Also <span class="it">on air</span></h3>
+    <div class="list">
+      <div class="list-row"><span class="mono">Now</span><h4>Ultima Markets</h4><p>Head of Socials, leading social media and communications strategy.</p></div>
+      <div class="list-row"><span class="mono">2025–26</span><h4>Callark &amp; Inbitix</h4><p>LATAM market entry advisor for a prediction markets platform and a crypto exchange.</p></div>
+      <div class="list-row"><span class="mono">2024</span><h4>=nil; Foundation</h4><p>Head of Socials for Ethereum infrastructure. 2,000 new organic followers in four months, plus EthCC and ETHDenver plans.</p></div>
+      <div class="list-row"><span class="mono">2024–25</span><h4>Firmograph</h4><p>LinkedIn-first B2B content for an AI revenue intelligence tool.</p></div>    </div>
+  </section>
+</main>
+
+<div class="signoff pad">
+  <section class="numbers" aria-label="Highlights">
+    <div><strong>10 min</strong><span>NFT sell-out, US$400k+ raised</span></div>
+    <div><strong>150+</strong><span>live X Spaces hosted</span></div>
+    <div><strong>0→5k</strong><span>community in one month</span></div>
+    <div><strong>4</strong><span>native languages</span></div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="portrait">
+      <img src="img/caue.jpg" alt="Portrait of Cauê Carvalho" loading="lazy">
+      <span class="sticker">Based in São Paulo</span>
+    </div>
+    <div>
+      <p class="mono" style="color:var(--dim);margin-bottom:14px">About</p>
+      <h2>Born in Brazil, raised in <span class="it">Italy,</span> studied in London</h2>
+      <p>I've spent 10 years building brands and communities across Europe and Latin America, and 5+ years in crypto. I studied graphic design at Ravensbourne University London, so I care how things look as much as how they perform.</p>
+      <p>I work best close to people: creators, traders and partners, online and in the room.</p>
+      <div class="langs"><span>Português</span><span>Español</span><span>English</span><span>Italiano</span></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Let's go <span class="it">live.</span></h2>
+    <p>I'm open to growth, partnerships and go-to-market roles in crypto, Web3 and fintech. Remote or São Paulo.</p>
+    <div class="actions">
+      <span class="email" id="email">cauecarvalhosantista@gmail.com</span>
+      <button class="btn" id="copy" type="button">Copy email</button>
+      <a class="btn ghost" href="https://www.linkedin.com/in/caue-carvalho" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </section>
+
+  <footer class="mono">
+    <span>Cauê Carvalho · São Paulo</span>
+    <span>Signing off ●</span>
+  </footer>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true">View</div>
+<div class="lightbox" id="lightbox" hidden>
+  <button type="button" id="lb-close">Close</button>
+  <figure><img id="lb-img" alt=""><figcaption class="mono" id="lb-cap"></figcaption></figure>
+</div>
+
+<script>
+(function () {
+  // Tall channels stick at a negative offset so their whole content scrolls into view before the next one covers them.
+  var chans = [].slice.call(document.querySelectorAll('.channel'));
+  function stick() { chans.forEach(function (c) { c.style.top = Math.min(0, innerHeight - c.offsetHeight) + 'px'; }); }
+  stick(); addEventListener('resize', stick); addEventListener('load', stick);
+
+  var lb = document.getElementById('lightbox'), lbImg = document.getElementById('lb-img'), lbCap = document.getElementById('lb-cap'), close = document.getElementById('lb-close'), last = null;
+  document.querySelectorAll('.shot').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var img = b.querySelector('img');
+      lbImg.src = img.src; lbImg.alt = img.alt; lbCap.textContent = b.dataset.cap || '';
+      last = b; lb.hidden = false; close.focus();
+    });
+  });
+  function shut() { lb.hidden = true; if (last) last.focus(); }
+  close.addEventListener('click', shut);
+  lb.addEventListener('click', function (e) { if (e.target === lb) shut(); });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) shut(); });
+
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) document.querySelectorAll('video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
+
+  var cur = document.getElementById('cursor');
+  if (!reduce && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    addEventListener('mousemove', function (e) { cur.style.transform = (cur.classList.contains('on') ? 'scale(1)' : 'scale(0)'); cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px'; });
+    document.querySelectorAll('.shot').forEach(function (s) {
+      s.addEventListener('mouseenter', function () { cur.classList.add('on'); });
+      s.addEventListener('mouseleave', function () { cur.classList.remove('on'); });
+    });
+  }
+
+  var copy = document.getElementById('copy'), email = document.getElementById('email');
+  copy.addEventListener('click', function () {
+    var done = function () { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy email'; }, 1800); };
+    var fallback = function () { var r = document.createRange(); r.selectNodeContents(email); var s = getSelection(); s.removeAllRanges(); s.addRange(r); copy.textContent = 'Selected, press Ctrl+C'; };
+    try { navigator.clipboard.writeText(email.textContent).then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
