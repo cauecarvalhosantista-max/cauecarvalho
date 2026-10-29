@@ -62,6 +62,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* Hero */
 .hero { position: relative; overflow: hidden; padding-block: 40px 56px; isolation: isolate; }
+.hero-video { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%; opacity: .2; filter: saturate(.5) contrast(1.05); pointer-events: none; -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 95%); mask-image: linear-gradient(to bottom, #000 40%, transparent 95%); }
 .hero-glow { position: absolute; inset: 0; z-index: -1; pointer-events: none;
   background: radial-gradient(40% 50% at var(--gx, 30%) var(--gy, 40%), rgba(255, 210, 63, .14), transparent 70%),
               radial-gradient(35% 45% at 85% 70%, rgba(200, 162, 255, .10), transparent 70%); }
@@ -130,6 +131,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .channels-head p { max-width: 36ch; color: var(--dim); }
 .channel { position: sticky; top: 0; border-radius: 32px 32px 0 0; padding-block: clamp(28px, 4vw, 48px) clamp(48px, 7vw, 96px); min-height: 92vh; box-shadow: 0 -24px 60px -20px rgba(0,0,0,.5); }
 .ch-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 2px solid currentColor; margin-bottom: clamp(24px, 4vw, 44px); }
+.ch-logo { display: block; width: clamp(56px, 6vw, 80px); height: clamp(56px, 6vw, 80px); border-radius: 22%; object-fit: contain; margin-bottom: clamp(16px, 2vw, 24px); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.ch-logo.flat { width: auto; height: clamp(90px, 10vw, 130px); border-radius: 0; box-shadow: none; }
+.ch-logo.on-white { background: #fff; }
 .ch-title { font-size: clamp(44px, 8.4vw, 132px); line-height: .88; font-weight: 900; font-variation-settings: "wdth" 120; text-transform: uppercase; letter-spacing: -.025em; margin-bottom: clamp(22px, 3vw, 36px); }
 .ch-title .it { font-size: 1.05em; }
 .ch-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
@@ -141,7 +145,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .ch-text li { padding-block: 10px; border-top: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
 .ch-text li:last-child { border-bottom: 1px solid color-mix(in srgb, currentColor 30%, transparent); }
 
-.c-blue { background: var(--blue); color: #fff; }
+.c-blue { background: #0067ff; color: #fff; }
 .c-mint { background: var(--mint); color: var(--ink); }
 .c-orchid { background: var(--orchid); color: var(--ink); }
 .c-tomato { background: var(--tomato); color: var(--ink); }
@@ -149,6 +153,10 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .c-rose { background: var(--rose); color: var(--ink); }
 
 /* Media */
+.proof { margin-top: clamp(24px, 3vw, 40px); display: grid; gap: 12px; }
+.proof .mono { font-size: 12px; opacity: .75; }
+.proof-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.proof-row .shot { width: clamp(64px, 8vw, 96px); height: auto; aspect-ratio: 1; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.2); }
 .shot { border: 0; padding: 0; margin: 0; display: block; width: 100%; height: 100%; position: relative; overflow: hidden; border-radius: 18px; background: rgba(0,0,0,.2); cursor: zoom-in; }
 .shot img, .tile video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
 .shot:hover img { transform: scale(1.05); }
@@ -257,6 +265,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
 </header>
 
 <section class="hero pad" id="top">
+  <video class="hero-video" src="video/cnbc.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="slate mono">
     <span>Based in <b>São Paulo</b> · working worldwide</span>
@@ -294,6 +303,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
 <main class="channels">
   <section class="channel c-blue pad" aria-labelledby="ch-gate">
     <div class="ch-top mono"><span>Gate · Head of Communications LATAM</span><span>2025</span></div>
+    <img class="ch-logo on-white" src="img/logos/gate.png" alt="Gate logo">
     <h3 class="ch-title" id="ch-gate">The <span class="it">voice</span> of Gate in LATAM</h3>
     <div class="ch-grid">
       <div class="ch-text">
@@ -301,6 +311,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
         <ul>
           <li>Closed IBs and KOLs that helped drive ~US$400M in monthly team volume</li>
           <li>80+ localized posts a day in Portuguese and Spanish</li>
+          <li>Spoke for Gate in an on-camera CNBC interview</li>
           <li>Weekly KOL AMAs with 500+ participants</li>
           <li>Paid social and A/B-tested KOL campaigns</li>
           <li>700+ sign-ups at Blockchain Rio, a booth format competitors later copied</li>
@@ -317,6 +328,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
 
   <section class="channel c-mint pad" aria-labelledby="ch-kucoin">
     <div class="ch-top mono"><span>KuCoin · Head of Growth LATAM</span><span>2026</span></div>
+    <img class="ch-logo" src="img/logos/kucoin.png" alt="KuCoin logo">
     <h3 class="ch-title" id="ch-kucoin">Building the <span class="it">growth</span> engine</h3>
     <div class="ch-grid">
       <div class="ch-text">
@@ -349,6 +361,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
 
   <section class="channel c-orchid pad" aria-labelledby="ch-bl">
     <div class="ch-top mono"><span>BrightLeaf Laboratories · Co-Founder &amp; Head of Growth</span><span>2021–2024</span></div>
+    <img class="ch-logo" src="img/logos/brightleaf.jpg" alt="BrightLeaf Labs logo">
     <h3 class="ch-title" id="ch-bl">Sold out in <span class="it">ten</span> minutes</h3>
     <div class="ch-grid">
       <div class="ch-text">
@@ -383,15 +396,15 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
   </section>
 
   <section class="channel c-tomato pad" aria-labelledby="ch-spaces">
-    <div class="ch-top mono"><span>Host &amp; producer · 5+ companies</span><span>2023 – today</span></div>
+    <div class="ch-top mono"><span>Host &amp; producer · KuCoin · Gate · Ultima · =nil; · BrightLeaf</span><span>2023 – today</span></div>
     <h3 class="ch-title" id="ch-spaces">150+ Spaces, <span class="it">live</span></h3>
     <div class="ch-grid">
       <div class="ch-text">
-        <p>I've organized and hosted more than 150 X Spaces, inviting every guest myself. It's my most effective channel for organic growth, and it builds trust that ads can't buy.</p>
+        <p>I've organized and hosted more than 150 X Spaces for KuCoin, Gate, Ultima Markets, =nil; Foundation and BrightLeaf Labs, inviting every guest myself. It's my most effective channel for organic growth, and it builds trust that ads can't buy.</p>
         <ul>
           <li>1,000+ live listeners on the biggest sessions</li>
           <li>Guests from exchanges, protocols and creator communities</li>
-          <li>Weekly KOL AMAs at Gate and KuCoin</li>
+          <li>Weekly KOL AMAs and community calls</li>
         </ul>
       </div>
       <div class="bigstat">
@@ -401,6 +414,19 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
           <div><b>150+</b><span>Spaces hosted</span></div>
           <div><b>1,000+</b><span>live listeners</span></div>
         </div>
+      </div>
+    </div>
+    <div class="proof">
+      <span class="mono">A few Spaces I’ve hosted · tap to view</span>
+      <div class="proof-row">
+        <button class="shot" data-cap="Ultima Markets PT · DeFi, Growth e o Cripto"><img src="img/spaces/s1.jpg" alt="X Space poster: Ultima Markets PT · DeFi, Growth e o Cripto" loading="lazy"></button>
+        <button class="shot" data-cap="Ultima Markets PT · O Cripto Que Ninguém Conta"><img src="img/spaces/s2.jpg" alt="X Space poster: Ultima Markets PT · O Cripto Que Ninguém Conta" loading="lazy"></button>
+        <button class="shot" data-cap="Ultima Markets ES · Economía, Política Monetaria y Tecnología"><img src="img/spaces/s3.jpg" alt="X Space poster: Ultima Markets ES · Economía, Política Monetaria y Tecnología" loading="lazy"></button>
+        <button class="shot" data-cap="Gate Português · Community AMA"><img src="img/spaces/s4.jpg" alt="X Space poster: Gate Português · Community AMA" loading="lazy"></button>
+        <button class="shot" data-cap="Gate Português · AMA with 0xCokinha"><img src="img/spaces/s5.jpg" alt="X Space poster: Gate Português · AMA with 0xCokinha" loading="lazy"></button>
+        <button class="shot" data-cap="KuCoin Português · AMA with Cripto Forja"><img src="img/spaces/s6.jpg" alt="X Space poster: KuCoin Português · AMA with Cripto Forja" loading="lazy"></button>
+        <button class="shot" data-cap="KuCoin Português · AMA with DeFi Bank"><img src="img/spaces/s7.jpg" alt="X Space poster: KuCoin Português · AMA with DeFi Bank" loading="lazy"></button>
+        <button class="shot" data-cap="=nil; Foundation · Going Horizontal"><img src="img/spaces/s8.jpg" alt="X Space poster: =nil; Foundation · Going Horizontal" loading="lazy"></button>
       </div>
     </div>
   </section>
