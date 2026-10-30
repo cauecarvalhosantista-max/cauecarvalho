@@ -125,6 +125,21 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .track span em { font-style: normal; color: var(--tomato); -webkit-text-stroke: 0; padding-left: .5em; }
 @keyframes slide { to { transform: translateX(-50%); } }
 
+/* Small interactions */
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 40; background: var(--sun); transform: scaleX(var(--p, 0)); transform-origin: left; pointer-events: none; }
+.clock { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .8; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) { .clock { display: none; } }
+.ticker:hover .track { animation-play-state: paused; }
+.track span { transition: opacity .3s, color .3s, -webkit-text-stroke-color .3s; }
+.ticker:hover .track span { opacity: .3; }
+.ticker .track span:hover { opacity: 1; color: var(--sun); -webkit-text-stroke-color: transparent; }
+.magnet { transition: transform .35s cubic-bezier(.2,.9,.3,1.3); will-change: transform; }
+.js-reveal .rv { opacity: 0; transform: translateY(.35em); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+.js-reveal .rv.in { opacity: 1; transform: none; }
+.btn { position: relative; }
+.spark { position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-radius: 2px; pointer-events: none; animation: spark .8s cubic-bezier(.2,.8,.3,1) forwards; }
+@keyframes spark { from { transform: translate(-50%, -50%); opacity: 1; } to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(200deg); opacity: 0; } }
+
 /* Channels */
 .channels-head { padding-block: 96px 40px; display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px; }
 .channels-head h2 { font-size: clamp(48px, 9vw, 140px); line-height: .88; font-weight: 900; font-variation-settings: "wdth" 125; text-transform: uppercase; letter-spacing: -.02em; }
@@ -248,6 +263,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
 
 @media (prefers-reduced-motion: reduce) {
   .track, .wave i, .onair i { animation: none; }
+  .magnet, .track span { transition: none; }
   .track { flex-wrap: wrap; width: auto; }
   .shot img { transition: none; }
 }
@@ -255,12 +271,15 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
 </head>
 <body>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
 <header class="bar pad">
   <a class="onair" href="#top"><i></i><b>Cauê Carvalho</b></a>
+  <span class="clock mono" id="clock" aria-label="Local time in São Paulo"></span>
   <nav class="mono" aria-label="Sections">
     <a href="#channels">Work</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
+    <a href="cv/Caue-Carvalho-CV.pdf" target="_blank" rel="noopener">CV ↗</a>
   </nav>
 </header>
 
@@ -365,11 +384,12 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
     <h3 class="ch-title" id="ch-bl">Sold out in <span class="it">ten</span> minutes</h3>
     <div class="ch-grid">
       <div class="ch-text">
-        <p>I assembled the founding team and led marketing, communications and community for a 3D NFT collection on Cardano: robots that grow plants, tied to real reforestation. After nine months of building, it sold out in under 10 minutes and raised US$400k+.</p>
+        <p>I assembled the founding team and led marketing, communications and community for a 3D NFT collection on Cardano: guardians born from a symbiosis of machine and plant, created to protect the Brazilian rainforest and tied to real reforestation. After nine months of building, it sold out in under 10 minutes and raised US$400k+.</p>
         <ul>
           <li>Community from 0 to 5,000 members in one month</li>
           <li>20,000+ trees planted in the Amazon rainforest</li>
-          <li>Invited to The Mews in Monaco, where we met the Prince of Monaco</li>
+          <li>Partnerships with multiple other NFT collections</li>
+          <li>Invited to The Mews in Monaco, where Prince Albert II, who sponsored the event, received one of our NFTs</li>
           <li>Took the brand to Sumdayz Festival in Rome</li>
         </ul>
       </div>
@@ -433,6 +453,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
 
   <section class="channel c-rose pad" aria-labelledby="ch-tp">
     <div class="ch-top mono"><span>True Passion · Co-Founder &amp; Marketing Director · Rome &amp; London</span><span>2016–2021</span></div>
+    <img class="ch-logo" src="img/logos/truepassion.jpg" alt="True Passion logo">
     <h3 class="ch-title" id="ch-tp">Where content <span class="it">meets</span> the stage</h3>
     <div class="ch-grid">
       <div class="ch-text">
@@ -507,6 +528,7 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
       <span class="email" id="email">cauecarvalhosantista@gmail.com</span>
       <button class="btn" id="copy" type="button">Copy email</button>
       <a class="btn ghost" href="https://www.linkedin.com/in/caue-carvalho" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn ghost" href="cv/Caue-Carvalho-CV.pdf" target="_blank" rel="noopener" download>Download CV ↓</a>
     </div>
   </section>
 
@@ -575,9 +597,67 @@ footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12
     });
   }
 
+
+  // Live São Paulo time in the bar.
+  var clock = document.getElementById('clock');
+  function tick() { try { clock.textContent = 'São Paulo · ' + new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Sao_Paulo' }).format(new Date()); } catch (e) {} }
+  tick(); setInterval(tick, 30000);
+
+  // Scroll progress line.
+  var bar = document.getElementById('progress'), queued = false;
+  function prog() { queued = false; var h = document.documentElement.scrollHeight - innerHeight; bar.style.setProperty('--p', h > 0 ? (scrollY / h).toFixed(4) : 0); }
+  addEventListener('scroll', function () { if (!queued) { queued = true; requestAnimationFrame(prog); } }, { passive: true });
+  prog();
+
+  var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  if (!reduce && 'IntersectionObserver' in window) {
+    // Titles rise in as they enter the screen.
+    document.documentElement.classList.add('js-reveal');
+    var rvs = document.querySelectorAll('.ch-title, section h2');
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -10% 0px' });
+    rvs.forEach(function (el) { el.classList.add('rv'); io.observe(el); });
+
+    // Highlight numbers count up once.
+    var nio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return; nio.unobserve(e.target);
+        var el = e.target, final = el.textContent, m = final.match(/(\d+)(?!.*\d)/);
+        if (!m) return;
+        var end = +m[1], t0 = performance.now();
+        (function step(now) {
+          var k = Math.min(1, (now - t0) / 1200), v = Math.round(end * (1 - Math.pow(1 - k, 3)));
+          el.textContent = final.slice(0, m.index) + v + final.slice(m.index + m[1].length);
+          if (k < 1) requestAnimationFrame(step); else el.textContent = final;
+        })(t0);
+      });
+    }, { threshold: .6 });
+    document.querySelectorAll('.numbers strong').forEach(function (n) { nio.observe(n); });
+  }
+
+  if (!reduce && fine) {
+    // Buttons lean toward the pointer.
+    document.querySelectorAll('.cta, .btn').forEach(function (b) {
+      b.classList.add('magnet');
+      b.addEventListener('mousemove', function (e) { var r = b.getBoundingClientRect(); b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .25).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * .35).toFixed(1) + 'px)'; });
+      b.addEventListener('mouseleave', function () { b.style.transform = ''; });
+    });
+
+  }
+
   var copy = document.getElementById('copy'), email = document.getElementById('email');
   copy.addEventListener('click', function () {
-    var done = function () { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy email'; }, 1800); };
+    var done = function () {
+      copy.textContent = 'Copied ✓'; setTimeout(function () { copy.textContent = 'Copy email'; }, 1800);
+      if (reduce) return;
+      var cols = ['#ff5436', '#1fd189', '#2b4bff', '#c8a2ff', '#0e0e10'];
+      for (var i = 0; i < 12; i++) {
+        var sp = document.createElement('i'), a = Math.PI * 2 * i / 12, d = 40 + Math.random() * 30;
+        sp.className = 'spark'; sp.style.background = cols[i % cols.length];
+        sp.style.setProperty('--dx', (Math.cos(a) * d).toFixed(0) + 'px'); sp.style.setProperty('--dy', (Math.sin(a) * d).toFixed(0) + 'px');
+        copy.appendChild(sp); setTimeout(sp.remove.bind(sp), 900);
+      }
+    };
     var fallback = function () { var r = document.createRange(); r.selectNodeContents(email); var s = getSelection(); s.removeAllRanges(); s.addRange(r); copy.textContent = 'Selected, press Ctrl+C'; };
     try { navigator.clipboard.writeText(email.textContent).then(done, fallback); } catch (e) { fallback(); }
   });
